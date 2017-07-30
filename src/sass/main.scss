@@ -1,0 +1,44 @@
+/*******************************************************
+*
+* Copyright (C) 2016, Paolo Basso  (basso.paolo99@gmail.com).
+*
+* This file is part of BetterTheatre.
+*
+* BetterTheatre can not be copied and/or distributed without credit the Author.
+*
+*******************************************************/
+
+.watch-stage-mode {
+
+  // Player container
+  .player-api, #theater-background {
+
+    &.player-width {
+      width: 100% !important;
+      left: 0px !important;
+      margin-left: 0px !important;
+    }
+
+    &.player-height {
+      height: 90vh !important;
+      height: calc(100vh - 50px) !important;
+    }
+
+  }
+
+  // Playlist container
+  #player-playlist .watch-playlist {
+    top: calc(100vh - 40px) !important;
+    transform: translateY(0px) !important;
+
+    .player-height {
+      height: 460px !important;
+    }
+
+  }
+
+  #placeholder-playlist {
+    height: 480px !important;
+  }
+
+}
