@@ -8,6 +8,17 @@
 *
 *******************************************************/
 
+// New Polymer UI
+@media (min-width: 882px) {
+
+  ytd-watch[theater] #player.ytd-watch {
+    height: calc(100vh - 56px) !important;
+    max-height: calc(100vh - 56px) !important;
+  }
+
+}
+
+// Old UI
 .watch-stage-mode {
 
   // Player container
