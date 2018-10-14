@@ -7,26 +7,6 @@
 * BetterTheatre can not be copied and/or distributed without credit the Author.
 *
 *******************************************************/
-@media (min-width: 882px) {
-  ytd-watch[theater] #player.ytd-watch {
-    height: calc(100vh - 56px) !important;
-    max-height: calc(100vh - 56px) !important; } }
-
-.watch-stage-mode .player-api.player-width, .watch-stage-mode #theater-background.player-width {
-  width: 100% !important;
-  left: 0px !important;
-  margin-left: 0px !important; }
-
-.watch-stage-mode .player-api.player-height, .watch-stage-mode #theater-background.player-height {
-  height: 90vh !important;
-  height: calc(100vh - 50px) !important; }
-
-.watch-stage-mode #player-playlist .watch-playlist {
-  top: calc(100vh - 40px) !important;
-  -webkit-transform: translateY(0px) !important;
-          transform: translateY(0px) !important; }
-  .watch-stage-mode #player-playlist .watch-playlist .player-height {
-    height: 460px !important; }
-
-.watch-stage-mode #placeholder-playlist {
-  height: 480px !important; }
+ytd-watch-flexy[theater] #player-theater-container {
+  height: calc(100vh - 56px) !important;
+  max-height: calc(100vh - 56px) !important; }

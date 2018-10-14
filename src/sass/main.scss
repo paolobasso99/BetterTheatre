@@ -8,48 +8,7 @@
 *
 *******************************************************/
 
-// New Polymer UI
-@media (min-width: 882px) {
-
-  ytd-watch[theater] #player.ytd-watch {
-    height: calc(100vh - 56px) !important;
-    max-height: calc(100vh - 56px) !important;
-  }
-
-}
-
-// Old UI
-.watch-stage-mode {
-
-  // Player container
-  .player-api, #theater-background {
-
-    &.player-width {
-      width: 100% !important;
-      left: 0px !important;
-      margin-left: 0px !important;
-    }
-
-    &.player-height {
-      height: 90vh !important;
-      height: calc(100vh - 50px) !important;
-    }
-
-  }
-
-  // Playlist container
-  #player-playlist .watch-playlist {
-    top: calc(100vh - 40px) !important;
-    transform: translateY(0px) !important;
-
-    .player-height {
-      height: 460px !important;
-    }
-
-  }
-
-  #placeholder-playlist {
-    height: 480px !important;
-  }
-
+ytd-watch-flexy[theater] #player-theater-container {
+  height: calc(100vh - 56px) !important;
+  max-height: calc(100vh - 56px) !important;
 }
