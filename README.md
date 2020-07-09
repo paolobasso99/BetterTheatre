@@ -1,5 +1,5 @@
 # BetterTheatre
-With this extension you can enjoy a full size theatre mode on youtube.
+With this extension you can enjoy a full size theater mode on youtube.
 
 ![BetterTheatre](https://i.imgur.com/XgrpwJL.png)
 
