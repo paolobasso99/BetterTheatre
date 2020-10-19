@@ -12,7 +12,7 @@ How to install this extension?
 Copyright
 ====
 
-BetterTheatre is released under the [MIT License](https://opensource.org/licenses/MIT).
+BetterTheatre is released under the AGPL-3.0 License License.
 
 Do not copy and/or distribute without credit the Author.
 
