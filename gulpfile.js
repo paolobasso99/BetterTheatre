@@ -15,26 +15,28 @@ var autoprefixer = require('gulp-autoprefixer');
 
 
 // Compilers
-gulp.task('sass', function() {
+gulp.task('sass', function(done) {
     gulp.src(sourcePath + 'sass/**/main.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(rename(project.name+ '.css'))
-        .pipe(autoprefixer({
-            browsers: ['> 1%']
-        }))
+        .pipe(autoprefixer())
         .pipe(gulp.dest(distPath + 'GoogleChrome/css/'))
         .pipe(gulp.dest(distPath + 'MozillaFirefox/css/'));
+
+    done();
 });
 
-gulp.task('images', function() {
+gulp.task('images', function(done) {
     gulp.src(sourcePath + 'assets/**/*.*')
         .pipe(gulp.dest(distPath + 'GoogleChrome/assets/'))
         .pipe(gulp.dest(distPath + 'MozillaFirefox/assets/'));
+
+    done();
 });
 
 
 // Tasks to use
-gulp.task('default', [ 'sass', 'images' ]);
+gulp.task('default', gulp.series('sass', 'images'));
 
 gulp.task('watch', function() {
     gulp.watch(sourcePath + 'sass/**/main.scss', ['sass']);

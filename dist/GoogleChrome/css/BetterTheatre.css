@@ -7,6 +7,6 @@
 * BetterTheatre can not be copied and/or distributed without credit the Author.
 *
 *******************************************************/
-ytd-watch-flexy[theater] #player-theater-container {
+ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
   height: calc(100vh - 56px) !important;
   max-height: calc(100vh - 56px) !important; }
