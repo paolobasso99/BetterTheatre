@@ -1,6 +1,6 @@
 {
   "name": "BetterTheatre",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "With this extension you can enjoy a full size theatre mode on youtube.",
   "scripts": {
     "build": "gulp build",

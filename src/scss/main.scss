@@ -8,7 +8,7 @@
 *
 *******************************************************/
 
-ytd-watch-flexy[theater] {
+ytd-watch-flexy[theater]:not([fullscreen]) {
   #player-theater-container, #player-wide-container {
     height: calc(100vh - 56px) !important;
     max-height: calc(100vh - 56px) !important;
