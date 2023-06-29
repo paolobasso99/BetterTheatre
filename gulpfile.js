@@ -15,13 +15,23 @@ function scss() {
     .pipe(dest("dist/MozillaFirefox/css/"));
 }
 
-function manifest() {
-  return src("src/manifest.json")
+function manifestGoogleChrome() {
+  return src("src/manifest-chrome.json")
     .pipe(jsonModify({ key: "version", value: project.version }))
     .pipe(jsonModify({ key: "name", value: project.name }))
     .pipe(jsonModify({ key: "description", value: project.description }))
     .pipe(jsonModify({ key: "author", value: project.author }))
-    .pipe(dest("dist/GoogleChrome/"))
+    .pipe(rename("manifest.json"))
+    .pipe(dest("dist/GoogleChrome/"));
+}
+
+function manifestMozillaFirefox() {
+  return src("src/manifest-firefox.json")
+    .pipe(jsonModify({ key: "version", value: project.version }))
+    .pipe(jsonModify({ key: "name", value: project.name }))
+    .pipe(jsonModify({ key: "description", value: project.description }))
+    .pipe(jsonModify({ key: "author", value: project.author }))
+    .pipe(rename("manifest.json"))
     .pipe(dest("dist/MozillaFirefox/"));
 }
 
@@ -40,20 +50,21 @@ function bundleGoogleChrome() {
     .pipe(dest("dist/GoogleChrome/"));
 }
 
-function bundleMozilaFirefox() {
-  return src(
+function bundleMozillaFirefox() {
+  return src([
     "dist/MozillaFirefox/**/*.*",
-    `!dist/MozillaFirefox/${project.name}.zip`
-  )
+    `!dist/MozillaFirefox/${project.name}.zip`,
+  ])
     .pipe(zip(project.name + ".zip"))
     .pipe(dest("dist/MozillaFirefox/"));
 }
 
 exports.build = series(
   scss,
-  manifest,
+  manifestGoogleChrome,
+  manifestMozillaFirefox,
   images,
   bundleGoogleChrome,
-  bundleMozilaFirefox
+  bundleMozillaFirefox
 );
-exports.dev = series(scss, manifest);
+exports.dev = series(scss, manifestGoogleChrome);
