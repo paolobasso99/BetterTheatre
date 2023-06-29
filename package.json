@@ -1,18 +1,19 @@
 {
   "name": "BetterTheatre",
-  "version": "1.5.0",
-  "description": "With this extension you can enjoy a full size theater mode on youtube.",
+  "version": "1.6.0",
+  "description": "With this extension you can enjoy a full size theatre mode on youtube.",
   "scripts": {
-    "dev": "gulp",
-    "watch": "gulp watch"
+    "build": "gulp build",
+    "dev": "gulp dev"
   },
   "author": "Paolo Basso",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-json-modify": "^1.0.2",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-watch": "^5.0.1",
-    "node-sass": "^5.0.0"
+    "gulp-sass": "^5.1.0",
+    "gulp-zip": "^5.1.0",
+    "sass": "^1.63.6"
   }
 }

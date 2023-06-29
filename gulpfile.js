@@ -1,44 +1,59 @@
-var gulp = require('gulp');
+const { series, src, dest } = require("gulp");
+const sass = require("gulp-sass")(require("sass"));
+const autoprefixer = require("gulp-autoprefixer");
+const project = require("./package.json");
+const rename = require("gulp-rename");
+const jsonModify = require("gulp-json-modify");
+const zip = require("gulp-zip");
 
+function scss() {
+  return src("src/scss/**/main.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(rename(project.name + ".css"))
+    .pipe(autoprefixer())
+    .pipe(dest("dist/GoogleChrome/css/"))
+    .pipe(dest("dist/MozillaFirefox/css/"));
+}
 
-// Variables
-var project = require('./package.json');
-var sourcePath = './src/';
-var distPath = './dist/';
+function manifest() {
+  return src("src/manifest.json")
+    .pipe(jsonModify({ key: "version", value: project.version }))
+    .pipe(jsonModify({ key: "name", value: project.name }))
+    .pipe(jsonModify({ key: "description", value: project.description }))
+    .pipe(jsonModify({ key: "author", value: project.author }))
+    .pipe(dest("dist/GoogleChrome/"))
+    .pipe(dest("dist/MozillaFirefox/"));
+}
 
+function images() {
+  return src("src/assets/**/*.*")
+    .pipe(dest("dist/GoogleChrome/assets/"))
+    .pipe(dest("dist/MozillaFirefox/assets/"));
+}
 
-// Modules
-var watch = require('gulp-watch');
-var sass = require('gulp-sass');
-var rename = require('gulp-rename');
-var autoprefixer = require('gulp-autoprefixer');
+function bundleGoogleChrome() {
+  return src([
+    "dist/GoogleChrome/**/*.*",
+    `!dist/GoogleChrome/${project.name}.zip`,
+  ])
+    .pipe(zip(project.name + ".zip"))
+    .pipe(dest("dist/GoogleChrome/"));
+}
 
+function bundleMozilaFirefox() {
+  return src(
+    "dist/MozillaFirefox/**/*.*",
+    `!dist/MozillaFirefox/${project.name}.zip`
+  )
+    .pipe(zip(project.name + ".zip"))
+    .pipe(dest("dist/MozillaFirefox/"));
+}
 
-// Compilers
-gulp.task('sass', function(done) {
-    gulp.src(sourcePath + 'sass/**/main.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(rename(project.name+ '.css'))
-        .pipe(autoprefixer())
-        .pipe(gulp.dest(distPath + 'GoogleChrome/css/'))
-        .pipe(gulp.dest(distPath + 'MozillaFirefox/css/'));
-
-    done();
-});
-
-gulp.task('images', function(done) {
-    gulp.src(sourcePath + 'assets/**/*.*')
-        .pipe(gulp.dest(distPath + 'GoogleChrome/assets/'))
-        .pipe(gulp.dest(distPath + 'MozillaFirefox/assets/'));
-
-    done();
-});
-
-
-// Tasks to use
-gulp.task('default', gulp.series('sass', 'images'));
-
-gulp.task('watch', function() {
-    gulp.watch(sourcePath + 'sass/**/main.scss', ['sass']);
-    gulp.watch(sourcePath + 'assets/**/*.*', ['images']);
-});
+exports.build = series(
+  scss,
+  manifest,
+  images,
+  bundleGoogleChrome,
+  bundleMozilaFirefox
+);
+exports.dev = series(scss, manifest);

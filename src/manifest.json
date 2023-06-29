@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "from project.json",
+  "description": "from project.json",
+  "version": "from project.json",
+  "author": "from project.json",
+
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "css": ["css/BetterTheatre.css"]
+    }
+  ],
+
+  "icons": {
+    "16": "assets/BT_icon16.png",
+    "48": "assets/BT_icon48.png",
+    "128": "assets/BT_icon128.png"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["css/BetterTheatre.css"],
+      "matches": ["*://www.youtube.com/*"]
+    }
+  ],
+
+  "host_permissions": ["*://www.youtube.com/*"]
+}

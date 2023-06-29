@@ -10,14 +10,28 @@ With this extension you can enjoy a full size theater mode on youtube.
 
 ![BetterTheatre](https://i.imgur.com/XgrpwJL.png)
 
-How to install this extension?
-===
+## How to install this extension?
 
 * **Google Chrome** - [Web Store](https://chrome.google.com/webstore/detail/bettertheatre/bbncinkmcfkhjbnebkbhoefiecdenmkh)
 * **Mozilla Firefox** - [Add-on site](https://addons.mozilla.org/en-US/firefox/addon/bettertheatre/)
 
-Copyright
-====
+## Development
+Install the dependencies:
+```bash
+npm install
+```
+
+Build the extension:
+```bash
+npm run build
+```
+
+Update the `scss` and the `manifest.json`:
+```bash
+npm run dev
+```
+
+## Copyright
 
 BetterTheatre is released under the AGPL-3.0 License License.
 
