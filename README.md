@@ -15,6 +15,8 @@ With this extension you can enjoy a full size theater mode on youtube.
 * **Google Chrome** - [Web Store](https://chrome.google.com/webstore/detail/bettertheatre/bbncinkmcfkhjbnebkbhoefiecdenmkh)
 * **Mozilla Firefox** - [Add-on site](https://addons.mozilla.org/en-US/firefox/addon/bettertheatre/)
 
+The extension is also available as a `zip` in the Release section of this repository.
+
 ## Development
 Install the dependencies:
 ```bash
@@ -26,7 +28,7 @@ Build the extension:
 npm run build
 ```
 
-Update the `scss` and the `manifest.json`:
+Update the `scss` and the `manifest.json` for Chrome:
 ```bash
 npm run dev
 ```

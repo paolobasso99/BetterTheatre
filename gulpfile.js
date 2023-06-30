@@ -44,18 +44,18 @@ function images() {
 function bundleGoogleChrome() {
   return src([
     "dist/GoogleChrome/**/*.*",
-    `!dist/GoogleChrome/${project.name}.zip`,
+    `!dist/GoogleChrome/${project.name}Chrome.zip`,
   ])
-    .pipe(zip(project.name + ".zip"))
+    .pipe(zip(project.name + "Chrome.zip"))
     .pipe(dest("dist/GoogleChrome/"));
 }
 
 function bundleMozillaFirefox() {
   return src([
     "dist/MozillaFirefox/**/*.*",
-    `!dist/MozillaFirefox/${project.name}.zip`,
+    `!dist/MozillaFirefox/${project.name}Firefox.zip`,
   ])
-    .pipe(zip(project.name + ".zip"))
+    .pipe(zip(project.name + "Firefox.zip"))
     .pipe(dest("dist/MozillaFirefox/"));
 }
 
