@@ -9,7 +9,7 @@
 *******************************************************/
 
 ytd-watch-flexy[theater]:not([fullscreen]) {
-  #player-theater-container, #player-full-bleed-container {
+  #full-bleed-container {
     height: calc(100vh - 56px) !important;
     max-height: calc(100vh - 56px) !important;
   }
