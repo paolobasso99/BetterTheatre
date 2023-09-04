@@ -23,7 +23,5 @@
       "resources": ["css/BetterTheatre.css"],
       "matches": ["*://www.youtube.com/*"]
     }
-  ],
-
-  "host_permissions": ["*://www.youtube.com/*"]
+  ]
 }
